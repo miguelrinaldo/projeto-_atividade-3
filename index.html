@@ -10,6 +10,43 @@
       <script src="js/script_veiculos.js" type="module" defer></script>
 </head>
 <body>
-    
+    <h1>Cadastro de Veiculos</h1>
+
+    <form id="form-veiculo">
+
+        <input type="text" id="modelo" placeholder="Modelo" required>
+        <input type="text" id="marca" placeholder="Marca" required>
+        <input type="text" id="placa" placeholder="Placa" required>
+        <input type="number" id="ano" placeholder="Ano de fabricação" required>
+        <input type="number" id="valor" placeholder="Valor de mercado (R$)" required>
+
+        <fieldset>
+            <legend>Tipo de Combustível</legend>
+
+            <label>
+                <input type="radio" name="combustivel" value="gasolina">Gasolina
+            </label>
+            <label>
+                <input type="radio" name="combustivel" value="etanol">Etanol
+            </label>
+            <label>
+                <input type="radio" name="combustivel" value="bicombustivel">Bicombustível
+            </label>
+            <label>
+                <input type="radio" name="combustivel" value="hibrido">Híbrido
+            </label>
+            <label>
+                <input type="radio" name="combustivel" value="eletrico">Elétrico
+            </label>
+        </fieldset>
+
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="lista-veiculos"></ul>
+
+    <script src="js/script_calculo.js" type="module"></script>
+    <script src="js/script_veiculos.js" type="module"></script>
+
 </body>
 </html>
