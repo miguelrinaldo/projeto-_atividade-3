@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 30px;
+    color: #333;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 24px;
+    color: #222;
+}
+form {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+}
+legend {
+    font-weight: bold;
+    padding: 0 6px;
+}
+
+fieldset label {
+    display: block;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* lista de veiculos */
+#Lista-veiculos {
+    list-style: none;
+    max-width: 500px;
+    margin: 24px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+#Lista-veiculos Li {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
