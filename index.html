@@ -3,51 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto de veiculos</title>
+    <title>Atividade 03</title>
     <link rel="stylesheet" href="css/style_veiculos.css">
+    <script src="js/script_veiculos.js" type="module" defer></script>
 
-      <script src="js/script_calculo.js" type="module" defer></script>
-      <script src="js/script_veiculos.js" type="module" defer></script>
 </head>
 <body>
     <div id="geral">
+        <h1>Cálculo Seguro e IPVA Automotivo</h1>
 
+        <div id="div-form">
+            <form id="form-veiculo">
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo">
+
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca">
+
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" name="placa">
+
+            <label for="ano-fab">Ano de Fabricação:</label>
+            <input type="text" id="ano-fab" name="ano-fab">
+
+            <label for="val-merc">Valor de Mercado:</label>
+            <input type="text" id="val-merc" name="val-merc">
+
+            <label for="comb">Tipo de Combustível:</label>
+            
+            <div class="gasolina">
+                <label for="gas">Gasolina</label>
+                <input type="radio" name="comb" id="gas" value="gas">
+            </div>
+
+            <div class="etanol">
+                <label for="eta">Etanol</label>
+                <input type="radio" name="comb" id="eta" value="eta">
+            </div>
+
+            <div class="biocombustivel">
+                <label for="bio">Biocombustível</label>
+                <input type="radio" name="comb" value="bio">
+            </div>
+
+            <div class="hibrido">
+                <label for="hibr">Híbrido</label>
+                <input type="radio" name="comb" value="hibr">
+            </div>
+            
+            <div class="eletrico">
+                <label for="elet">Elétrico</label>
+                <input type="radio" name="comb" value="elet">
+            </div>
+
+            <button type="submit">Adicionar</button>
+            <button type="reset">Limpar</button>
+            
+            </form>
+        </div>
     
-    <h1>Cadastro de Veiculos</h1>
+        <div id="div-lista">
 
-    <form id="form-veiculo">
+        </div>
 
-        <input type="text" id="modelo" placeholder="Modelo" required>
-        <input type="text" id="marca" placeholder="Marca" required>
-        <input type="text" id="placa" placeholder="Placa" required>
-        <input type="number" id="ano" placeholder="Ano de fabricação" required>
-        <input type="number" id="valor" placeholder="Valor de mercado (R$)" required>
-
-        <fieldset>
-            <legend>Tipo de Combustível</legend>
-
-            <label>
-                <input type="radio" name="combustivel" value="gasolina">Gasolina
-            </label>
-            <label>
-                <input type="radio" name="combustivel" value="etanol">Etanol
-            </label>
-            <label>
-                <input type="radio" name="combustivel" value="bicombustivel">Bicombustível
-            </label>
-            <label>
-                <input type="radio" name="combustivel" value="hibrido">Híbrido
-            </label>
-            <label>
-                <input type="radio" name="combustivel" value="eletrico">Elétrico
-            </label>
-        </fieldset>
-
-        <button type="submit">Adicionar</button>
-    </form>
-
-    <ul id="lista-veiculos"></ul>
-
-</div>
+    </div>
 </body>
 </html>

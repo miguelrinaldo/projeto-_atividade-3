@@ -1,39 +1,55 @@
-import { calcularIPVA} from "./script_calculo.js"
+//importando calculos
+import { calculoFinal, calculoIdade, calculoIpva, calculoSeg } from './script_calculo.js'
 
-const form = document.querySelector("form")
+//array para veiculos
+const veiculos = []
 
-const lista = document.querySelector("#lista-veiculos")
+//pegando elementos do DOM
+const formVeiculo = document.querySelector('#form-veiculo')
+const divLista = document.querySelector('#div-lista')
 
-form.addEventListener("submit", function(evt) {
-evt.preventDefault(); 
+//capturando o evento submit do form
+formVeiculo.addEventListener('submit', (evt)=>{
+    //interrompendo o evento padrão do form
+    evt.preventDefault()
+
+    //criando o objeto dataform
+    const dadosForm = new FormData(formVeiculo)
+
+    //criando e preenchendo o objeto literal
+    const veiculo = {
+        modelo: dadosForm.get('modelo'),
+        marca: dadosForm.get('marca'),
+        placa: dadosForm.get('placa'),
+        anofab: dadosForm.get('ano-fab'),
+        valmerc: dadosForm.get('val-merc'),
+        comb: dadosForm.get('comb'),
+    }
+
+
+    //chamando a funçaõ addVeiculo e passando o objeto literal veiculo
+    addVeiculo(veiculo)
+
+    //limpando o form
+    formVeiculo.reset()
+
 })
 
-const modelo = document.querySelector("#modelo").value;
-const marca = document.querySelector("#marca").value;
-const placa = document.querySelector("#placa").value;
-const ano = document.querySelector("#ano").value;
-const valor = document.querySelector("#valor").value;
+//função para adicionar veiculos
+const addVeiculo = (objVeiculo)=>{
+    //adicionando o objeto no array pessoas vindo da funcao
+    veiculos.push(objVeiculo)
 
-// pega o radio que foi selecionado
-const combustivel = document.querySelector("input[name='combustivel']:checked").value;
+    listVeiculo()
+}
 
-//cálculos
-const seguro = valor * 0.10;
-const ipva = calcularIPVA(valor, combustivel, ano)
-const  anoAtual = new Date().getFullYear();
-const idade = anoAtual - ano;
+//funcao listar veiculos
+const listVeiculo = () => {
+    //limpando a div-lista
+    divLista.innerHTML = ''
 
-//valor final (segura + ipva, se não for isento)
-const valorFinal = ipva = "Isento"
-? seguro
-: seguro + ipva;
+    veiculos.forEach((elem, i)=>{
+        divLista.innerHTML += `<div class="div-lista-carros"> Veículo ${i + 1} <br> Modelo: ${elem.modelo} <br> Marca: ${elem.marca} <br> Placa: ${elem.placa} <br> Idade do Veículo: ${calculoIdade(elem)} <br> Valor do Seguro: ${calculoSeg(elem)} <br> Valor do IPVA: ${calculoIpva(elem)} <br> Valor Final: ${calculoFinal(elem)}. <p> </div>`
+    })
 
-//criar o item da lista 
-const item = document.createElement("Li");
-item.innerHTML = `
-<strong>${modelo} - ${marca}</strong>
-<span>Placa: ${placa}</span>
-<span>Idade: ${idade}</span>
-<span>Seguro: ${seguro.toFixed(2)}</span>
-<span>IPVA: ${ipva = "Isento" ? "Isento" : "R$" + ipva.toFixed(2)}</span>
- <span>Valor Final:R$ ${valorFinal.toFixed(2)}</span> `     
+}
